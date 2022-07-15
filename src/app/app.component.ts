@@ -8,13 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   appPages = [
     {
-      title: 'Schedule',
+      title: 'Dashboard',
       url: '/dashboard',
       icon: 'apps'
     },
     {
       title: 'Settings',
-      url: '/home',
+      url: '/settings',
       icon: 'toggle'
     },
     {

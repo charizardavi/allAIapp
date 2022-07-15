@@ -9,21 +9,16 @@ export class AppComponent {
   appPages = [
     {
       title: 'Schedule',
-      url: '/home',
+      url: '/dashboard',
       icon: 'apps'
     },
     {
-      title: 'Speakers',
-      url: '/home',
-      icon: 'people'
-    },
-    {
-      title: 'Map',
+      title: 'Settings',
       url: '/home',
       icon: 'toggle'
     },
     {
-      title: 'About',
+      title: 'Advanced',
       url: '/home',
       icon: 'terminal'
     }

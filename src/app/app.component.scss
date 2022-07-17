@@ -1,3 +1,14 @@
+:root {
+  --ion-color-primary: #47d499;
+  --ion-color-secondary: #2da694;
+  --ion-color-tertiary: #7af3bc;
+  --ion-color-secondary-rgb: rgb(39, 182, 139);
+  --ion-color-secondary-contrast: #28c294;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #72e96e;
+  --ion-color-secondary-tint: #04cf15;
+}
+
 ion-menu ion-content {
   position:absolute;
   top: 40%;

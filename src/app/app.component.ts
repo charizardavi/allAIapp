@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
   appPages = [
@@ -13,14 +14,14 @@ export class AppComponent {
       icon: 'apps'
     },
     {
+      title: 'Advanced',
+      url: '/advanced',
+      icon: 'terminal'
+    },
+    {
       title: 'Settings',
       url: '/settings',
       icon: 'toggle'
-    },
-    {
-      title: 'Advanced',
-      url: '/home',
-      icon: 'terminal'
     }
   ];
   constructor() {}

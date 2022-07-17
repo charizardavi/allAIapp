@@ -1,14 +1,13 @@
 <ion-app [class.dark-theme]="dark">
   <ion-split-pane contentId="main-content">
 
-    <ion-menu contentId="main-content">
+    <ion-menu contentId="main-content" menuId="onlyMenu">
       <ion-content>
         <ion-list lines="none">
-          <ion-menu-toggle autoHide="false" *ngFor="let p of appPages; let i = index">
+          <ion-menu-toggle autoHide="false" *ngFor="let p of appPages; let i = index" menu="onlyMenu">
             <ion-item [routerLink]="p.url" routerLinkActive="selected" routerDirection="root" detail="false">
-              <ion-icon slot="start" [name]="p.icon + '-outline'"></ion-icon>
+              <ion-icon size="large" slot="start" [name]="p.icon + '-outline'"></ion-icon>
             </ion-item>
-
           </ion-menu-toggle>
         </ion-list>
       </ion-content>

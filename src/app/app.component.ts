@@ -1,4 +1,5 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: ['app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   appPages = [
     {
       title: 'Dashboard',
@@ -22,7 +23,16 @@ export class AppComponent {
       title: 'Settings',
       url: '/settings',
       icon: 'toggle'
+    },
+    {
+      title: 'Create',
+      url: '/create',
+      icon: 'add'
     }
   ];
-  constructor() {}
+  constructor(private storage: Storage) {}
+
+  async ngOnInit() {
+    await this.storage.create();
+  }
 }

@@ -78,3 +78,22 @@ ion-input {
     }
   }
 }
+
+ion-card{
+  height: 100% !important;
+}
+.traintitle{
+  font-size: x-large !important;
+}
+.traininfo{
+  display:inline-block;
+  margin-right:10px;
+  color: black;
+  h2{
+    font-size: large;
+  }
+}
+.trainicon{
+  display:inline-block;
+  color: black;
+}

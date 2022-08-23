@@ -18,7 +18,16 @@ const routes: Routes = [
   {
     path: 'advanced',
     loadChildren: () => import('./advanced/advanced.module').then( m => m.AdvancedPageModule)
+  },
+  {
+    path: 'dashboard/project/:projectname',
+    loadChildren: () => import('./dashboard/project/project.module').then( m => m.ProjectPageModule)
+  },
+  {
+    path: 'create',
+    loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
   }
+
 ];
 
 @NgModule({

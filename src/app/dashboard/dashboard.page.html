@@ -1,8 +1,24 @@
 <ion-content [fullscreen]="true">
   <ion-title id="pagetitle">Dashboard</ion-title>
 
-  <input type="file" class = "fileclass" id="fileOneID" accept=".png, .jpg, .jpeg" multiple>
+  <input type="file" class="fileclass" id="fileOneID" accept=".png, .jpg, .jpeg" multiple>
   <label for="fileOneID" class="btn-3">
     <span>select</span>
   </label>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let project of projects; let i = index;">
+        <ion-card (click)="goToDashboard(project.name,project)">
+          <ion-card-header>
+            <ion-card-subtitle>{{project.typestring}}</ion-card-subtitle>
+            <ion-card-title class="traintitle">{{project.name}}</ion-card-title>
+            <ion-text class="traininfo"><h2>Trained </h2></ion-text>
+            <ion-icon class="trainicon" name="checkmark-circle-outline"></ion-icon>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

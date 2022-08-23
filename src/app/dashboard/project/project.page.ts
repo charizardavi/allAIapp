@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { Projectdata } from 'src/app/projectdata';
 
 @Component({
   selector: 'app-project',
@@ -6,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./project.page.scss'],
 })
 export class ProjectPage implements OnInit {
-
-  constructor() { }
+  incomingProjectName: string;
+  incomingProject: Projectdata;
+  constructor(private activatedRoute: ActivatedRoute, public router: Router) {
+    this.incomingProjectName = this.activatedRoute.snapshot.paramMap.get('projectname');
+    if (router.getCurrentNavigation().extras.state){
+      this.incomingProject = router.getCurrentNavigation().extras.state as unknown as Projectdata;
+    }
+  }
 
   ngOnInit() {
   }

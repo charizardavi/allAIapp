@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardPage } from './dashboard.page';
+import { SwiperModule } from 'swiper/angular';
+
 
 const routes: Routes = [
   {

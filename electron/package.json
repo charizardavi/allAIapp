@@ -1,0 +1,85 @@
+{
+  "name": "allai",
+  "version": "1.0.0",
+  "description": "All AI, no code",
+  "author": {
+    "name": "Avaninder",
+    "email": "abhaghayath@exeter.edu"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "main": "build/src/index.js",
+  "scripts": {
+    "build": "tsc && electron-rebuild",
+    "electron:start-live": "node ./live-runner.js",
+    "electron:start": "npm run build && electron --inspect=5858 ./",
+    "electron:pack": "npm run build && electron-builder build --dir -c ./electron-builder.config.json",
+    "electron:make": "npm run build && electron-builder build -c ./electron-builder.config.json -p always",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "dependencies": {
+    "@capacitor-community/electron": "^4.1.1",
+    "@electron-forge/maker-appx": "^6.0.0-beta.65",
+    "chokidar": "~3.5.3",
+    "electron-is-dev": "~2.0.0",
+    "electron-serve": "~1.1.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-unhandled": "~4.0.1",
+    "electron-updater": "~5.0.1",
+    "electron-window-state": "~5.0.3"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.65",
+    "@electron-forge/maker-deb": "^6.0.0-beta.65",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.65",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.65",
+    "@electron-forge/maker-zip": "^6.0.0-beta.65",
+    "electron": "^19.0.0",
+    "electron-rebuild": "^3.2.7",
+    "typescript": "~4.3.5"
+  },
+  "keywords": [
+    "capacitor",
+    "electron"
+  ],
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-appx",
+          "config": {
+            "publisher": "CN=Avaninder",
+            "devCert": "C:\\Users\\chari\\crazyStuff\\avaninderKey.pfx",
+            "certPass": "2662228390"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "allAIapp"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}

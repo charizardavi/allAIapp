@@ -1,29 +1,51 @@
 @import '~swiper/scss';
 @import '~@ionic/angular/css/ionic-swiper';
 
-#active{
+#active {
   border: 3px solid rgb(74, 212, 219);
 }
 
-#normalType{
+#normalType {
   border: 0px;
 }
-#comingSoon{
+
+#comingSoon {
   border: 3px solid rgba(85, 90, 90, 0.464);
   background-color: rgba(85, 90, 90, 0.464);
-  img{
+
+  img {
     filter: blur(30px);
   }
-  ion-card-title{
-    color:rgba(85, 90, 90, 0.464);
+
+  ion-card-title {
+    color: rgba(85, 90, 90, 0.464);
   }
 }
-ion-card{
-  height: 20vw;
-  width: 30vw;
 
+#category{
+  height: 12vw;
+  width: 35vw;
 }
-#side{
+
+#side {
   position: relative;
-  margin-top: 40%;
+  margin-top: 35%;
+  height: 30vw;
+  width: 35vw;
+}
+
+#plantimg {
+  max-height:12vh !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: contain !important;
+}
+
+::ng-deep .carousel-control-prev-icon{
+  background-image: url('https://apufpel.com.br/assets/img/seta_prim.png');
+}
+
+::ng-deep .carousel-control-next-icon{
+  background-image: url('https://apufpel.com.br/assets/img/seta_ult.png');
 }

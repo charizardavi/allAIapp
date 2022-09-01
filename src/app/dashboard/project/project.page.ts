@@ -21,6 +21,7 @@ export class ProjectPage implements OnInit {
   public progress: any;
   subscription !: Subscription;
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  categories: any[];
 
   constructor(private activatedRoute: ActivatedRoute, public router: Router, private python: PythonService, config: NgbCarouselConfig) {
     this.incomingProjectName = this.activatedRoute.snapshot.paramMap.get('projectname');
@@ -29,7 +30,8 @@ export class ProjectPage implements OnInit {
     }
     config.showNavigationArrows = true;
     config.showNavigationIndicators = false;
-    config.pauseOnHover = true;
+    config.pauseOnHover = false;
+
   }
 
   ngOnInit() {
@@ -51,5 +53,9 @@ export class ProjectPage implements OnInit {
   stopProgressBar(){
     this.subscription.unsubscribe();
   }
+  removeImg(){
+    console.log('clicked');
+  }
+
 
 }

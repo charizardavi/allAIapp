@@ -11,9 +11,9 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-row>
+        <ion-row *ngFor="let imagecategory of list">
           <ion-col>
-            <ion-card id="active">
+            <ion-card id="category">
               <!-- <img src="assets/bird.jpg" /> -->
               <ion-card-header>
                 <ion-card-title>wok</ion-card-title>
@@ -22,46 +22,81 @@
                 <ngb-carousel *ngIf="images">
                   <ng-template ngbSlide>
                     <div class="picsum-img-wrapper">
-                      <img [src]="images[0]" alt="Random first slide">
+                      <img src="assets/plant.jpg" alt="Random first slide" id="plantimg">
                     </div>
                     <div class="carousel-caption">
-                      <h3>First slide label</h3>
-                      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                      <!-- <h3>First slide label</h3> -->
+                      <ion-button (click)="removeImg()" shape="round">
+                        <ion-icon name="trash-outline"></ion-icon>
+                      </ion-button>
                     </div>
                   </ng-template>
                   <ng-template ngbSlide>
                     <div class="picsum-img-wrapper">
-                      <img [src]="images[1]" alt="Random second slide">
+                      <img src="assets/plant.jpg" alt="Random second slide" id="plantimg">
                     </div>
                     <div class="carousel-caption">
-                      <h3>Second slide label</h3>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      <ion-button (click)="removeImg()" shape="round">
+                        <ion-icon name="trash-outline"></ion-icon>
+                      </ion-button>
                     </div>
                   </ng-template>
                   <ng-template ngbSlide>
                     <div class="picsum-img-wrapper">
-                      <img [src]="images[2]" alt="Random third slide">
+                      <img [src]="images[2]" alt="Random third slide" id="plantimg">
                     </div>
                     <div class="carousel-caption">
-                      <h3>Third slide label</h3>
-                      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                      <ion-button (click)="removeImg()" shape="round">
+                        <ion-icon name="trash-outline"></ion-icon>
+                      </ion-button>
                     </div>
                   </ng-template>
                 </ngb-carousel>
-
               </ion-card-content>
             </ion-card>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <ion-card id="active">
+            <ion-card id="category">
               <!-- <img src="assets/bird.jpg" /> -->
               <ion-card-header>
                 <ion-card-title>wok</ion-card-title>
               </ion-card-header>
               <ion-card-content>
-                workwork
+                <ngb-carousel *ngIf="images">
+                  <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                      <img src="assets/plant.jpg" alt="Random first slide" id="plantimg">
+                    </div>
+                    <div class="carousel-caption">
+                      <!-- <h3>First slide label</h3> -->
+                      <ion-button (click)="removeImg()" shape="round">
+                        <ion-icon name="trash-outline"></ion-icon>
+                      </ion-button>
+                    </div>
+                  </ng-template>
+                  <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                      <img src="assets/plant.jpg" alt="Random second slide" id="plantimg">
+                    </div>
+                    <div class="carousel-caption">
+                      <ion-button (click)="removeImg()" shape="round">
+                        <ion-icon name="trash-outline"></ion-icon>
+                      </ion-button>
+                    </div>
+                  </ng-template>
+                  <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                      <img [src]="images[2]" alt="Random third slide" id="plantimg">
+                    </div>
+                    <div class="carousel-caption">
+                      <ion-button (click)="removeImg()" shape="round">
+                        <ion-icon name="trash-outline"></ion-icon>
+                      </ion-button>
+                    </div>
+                  </ng-template>
+                </ngb-carousel>
               </ion-card-content>
             </ion-card>
           </ion-col>

@@ -19,8 +19,13 @@ export class DashboardPage implements OnInit {
   public myRoute: string;
   public readyToLoad = false;
   oldprojects: Projectdata[];
+  public obj: any = {};
 
-  constructor(private dashboardstorage: Storage, public nav: NavController, public router: Router) {
+  constructor(
+    private dashboardstorage: Storage,
+    public nav: NavController,
+    public router: Router
+  ) {
     this.projects = [];
     this.myRoute = '/dashboard/project/';
     // if (router.getCurrentNavigation().extras.state) {
@@ -40,15 +45,23 @@ export class DashboardPage implements OnInit {
     this.oldprojects = this.projects;
 
     if (this.router.getCurrentNavigation().extras.state) {
-      const incomingNewProject = this.router.getCurrentNavigation().extras.state;
+      const incomingNewProject =
+        this.router.getCurrentNavigation().extras.state;
       await this.storageGet();
       // await this.delay(200);
       await this.loadProjects();
       // await this.delay(200);
       // this.projects.push({name:incomingNewProject.name, type: Projecttype.image, trained:true, typestring: 'image'});
-      this.projects = this.projects.concat([{name:incomingNewProject.name, type: Projecttype.image, trained:true, typestring: 'image'}]);
+      this.projects = this.projects.concat([
+        {
+          name: incomingNewProject.name,
+          type: Projecttype.image,
+          trained: true,
+          typestring: 'image',
+        },
+      ]);
       await this.delay(200);
-      if (this.projects !== this.oldprojects){
+      if (this.projects !== this.oldprojects) {
         console.log('not equal');
         await this.storageSet();
         // await this.delay(200);
@@ -56,20 +69,18 @@ export class DashboardPage implements OnInit {
         // await this.delay(200);
         await this.loadProjects();
       }
-    }
-    else{
+    } else {
       await this.storageGet();
       // await this.delay(200);
       await this.loadProjects();
     }
-
   }
 
   async loadProjects() {
     for (let i = 0; i < this.projectlen; i++) {
-      this.tempProjectDataArray = await this.dashboardstorage.get(
+      this.tempProjectDataArray = (await this.dashboardstorage.get(
         'projects'
-      ) as Promise<Projectdata[]> as unknown as Projectdata[];
+      )) as Promise<Projectdata[]> as unknown as Projectdata[];
       this.projects = this.tempProjectDataArray;
     }
   }
@@ -116,7 +127,14 @@ export class DashboardPage implements OnInit {
   }
 
   delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  public idkman(event) {
+    $('#fileOneID').attr('src', URL.createObjectURL(event.target.files[0]));
+    console.log(URL.createObjectURL(event.target.files[0]));
+    // $('#imgs').attr('src',URL.createObjectURL(event.target.files[1]));
+    // console.log(URL.createObjectURL(event.target.files[1]));
   }
 
   // public createProject(newProjectName: string, projectType: number) {
@@ -131,4 +149,23 @@ export class DashboardPage implements OnInit {
   //     ]);
   //   }
   // }
+  onFileSelect(input) {
+    console.log(input.files);
+
+    if (input.files && input.files[0]) {
+      for (const item of input.files) {
+        if (item) {
+          const reader = new FileReader();
+          reader.onload = (e: any) => {
+            console.log('Got here: ', e.target.result);
+            this.obj.photoUrl = e.target.result;
+          };
+          reader.readAsDataURL(item);
+        }
+        else{
+          break;
+        }
+      }
+    }
+  }
 }

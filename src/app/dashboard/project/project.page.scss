@@ -49,3 +49,24 @@
 ::ng-deep .carousel-control-next-icon{
   background-image: url('https://apufpel.com.br/assets/img/seta_ult.png');
 }
+
+#addimg{
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+
+#deletebtn{
+  position: relative;
+  bottom: -40px;
+}
+#trainbtn
+{
+  position: relative;
+  bottom: -570px !important;
+}
+#trainwarning{
+  position: relative;
+  bottom: -600px !important;
+  text-align: center;
+}

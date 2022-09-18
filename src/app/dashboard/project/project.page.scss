@@ -62,11 +62,15 @@
 }
 #trainbtn
 {
-  position: relative;
-  bottom: -570px !important;
+  // position: relative;
+  display:block;
+  margin-top:55% !important;
 }
-#trainwarning{
-  position: relative;
-  bottom: -600px !important;
-  text-align: center;
+ion-card-content{
+  height: max-content;
 }
+// #trainwarning{
+//   position: relative;
+//   bottom: -600px !important;
+//   text-align: center;
+// }

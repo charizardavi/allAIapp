@@ -27,7 +27,7 @@ export class ProjectPage implements OnInit {
   public obj: any = {};
 
 
-
+  speeds: ['Basic', ''];
 
 
   constructor(
